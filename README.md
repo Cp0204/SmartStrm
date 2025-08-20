@@ -84,6 +84,11 @@ services:
       - LICENSE= # 许可证字符串（如有）
 ```
 
+一键更新
+
+```bash
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR smartstrm
+```
 
 ## 使用
 
