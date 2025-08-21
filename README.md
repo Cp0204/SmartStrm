@@ -56,6 +56,7 @@ docker run -d \
   -v /yourpath/smartstrm/config:/app/config \  # 挂载配置目录
   -v /yourpath/smartstrm/logs:/app/logs \  # 挂载日志目录，可选
   -v /yourpath/smartstrm/strm:/strm \  # 挂载 STRM 生成目录
+  # 以上 /yourpath 改为你实际存放配置的路径
   -e PORT=8024 \  # 管理端口，可选
   -e ADMIN_USERNAME=admin \  # 管理用户名
   -e ADMIN_PASSWORD=admin123 \  # 管理用户密码
@@ -77,6 +78,7 @@ services:
       - /yourpath/smartstrm/config:/app/config # 挂载配置目录
       - /yourpath/smartstrm/logs:/app/logs # 挂载日志目录，可选
       - /yourpath/smartstrm/strm:/strm # 挂载 STRM 生成目录
+      # 以上 /yourpath 改为你实际存放配置的路径
     environment:
       - PORT=8024 # 管理端口，可选
       - ADMIN_USERNAME=admin # 管理用户名
@@ -155,11 +157,45 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 - **请求内容类型**: application/json
 - **Events**: 勾选 `媒体库-媒体删除`
 
+### Webhook 运行任务
+
+```bash
+curl --request POST \
+  --url http://127.0.0.1:8024/webhook/9dfb51234d483e83 \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "event": "a_task",
+    "task": {
+        "name": "test",
+        "storage_path": "/drive/quark/test"
+    },
+    "strm": {
+        "media_ext": [
+            "mp4",
+            "mkv"
+        ],
+        "url_encode": true,
+        "media_size": 100,
+        "copy_ext": [
+            "srt",
+            "ass"
+        ]
+    }
+}'
+```
+
+其中：
+
+- `event` 是事件名，固定不变
+- `task.name` 必须为已存在的任务名，仅支持单个
+- `task.storage_path` 可选，填写时必须为任务的路径或子路径
+- `strm` 字典可选，如缺省则使用系统设置
+
 ## 302 代理
 
 > 使用 SmartStrm 提供的 302 代理，将 Emby 客户端播放请求重定向，直接从直链获取视频流，不受 Emby 服务器的带宽限制。
 >
-> 测试支持绝大多数提供 http 直链的网盘，如使用 OpenList - 天翼 方案较为完美。
+> 测试支持绝大多数提供 http 直链的网盘，如使用 115VIP、OpenList-天翼 等方案较为完美。
 >
 > 图标示意: ✅兼容 ❌不兼容 🟡部分兼容 ⚫未测试
 
@@ -188,13 +224,13 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 > A: 暂无计划，做好一件事，少即是多。市面上已经有不少转存工具，不重复造轮子，除非我有信心做成最好用的轮子。
 
 #### Q: 免费和收费？
-> A: 基础功能免费（STRM生成，Webhook），已经能够满足绝大多数人需求，高级功能付费（302代理），定价极其合理。
+> A: 基础功能免费（STRM生成，Webhook等），已经能够满足绝大多数人需求，高级功能付费（302代理），定价极其合理。作者的免费开源项目 QAS 至今已迭代多个版本， SmartStrm 是打通网络存储和本地媒体库的最后一块拼图，从高级功能中获取一定的回报，更有利于项目的长远发展。
 
 #### Q: 302代理之后可以分享给家人和朋友用吗 这样会风控吗？
 > A: 代理后直接由客户端向网盘请求下载，能识别到多IP、多UA用你的账号在请求下载。我觉得看程度吧，三五人都问题不大，假设我就是家里登录了、公司在异地也登录了，属于正常使用需求。但你要是公开出去同时十几、几十处异地下载，只能说有风险，风险自担。
 
 #### Q: 关于目录时间检查选项的工作机制？
-> A: 这个选项是为了最小化地请求接口，和最快的速度完成任务。远端目录的修改时间就更新了，比本地新，就会往下检查。已知115新增/删除文件都会更新父目录的修改时间；夸克网盘新增会更新但删除不会；各个盘可能机制不一，需要自行测试。
+> A: 这个选项是为了最小化地请求接口，和最快的速度执行任务。远端目录的修改时间更新了、比本地新，就会往下检查。已知115新增/删除文件都会更新父目录的修改时间；夸克网盘新增会更新但删除不会；各个盘可能机制不一，建议自行验证。
 
 #### Q: 映射了 302 代理端口访问 Emby ，还要不要映射 SmartStrm 端口？
 >A: 不需要，如果用 SS 的 302 代理功能，分享代理后的 Emby 端口出去，STRM 地址可以直接用内网，代理会自行处理。别人访问不到 SmsrtStrm 或 STRM 的地址，能访问的只有代理后的 Emby 服务，所以我称之为 “一站式 Emby Jellyfin 302 直链播放” 。
