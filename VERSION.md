@@ -1,5 +1,17 @@
 # SmartStrm What's New
 
+## v0.0.3
+
+- STRM 生成
+  - 优化复制文件名的处理逻辑，如目录下有需生成的同名媒体，将复制的文件命名为 `同名.(media_ext).copy_ext`  解决 nfo 不匹配的问题 https://github.com/Cp0204/SmartStrm/issues/1#issuecomment-3216267328
+- 302代理
+  - 修复观看 直播/IPTV 没有兼容的流
+- 驱动
+  - 修复本地文件驱动兼容性问题 #1
+  - 修复本地驱动路径问题
+- Webhook
+  - 优化 Emby 同步删除时无效路径的错误提示
+
 ## v0.0.2
 
 - 驱动
