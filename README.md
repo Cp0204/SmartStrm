@@ -156,7 +156,11 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 
 ### Emby 删除同步
 
-> 需把 STRM 目录挂载到 Emby 容器的 /strm 路径下
+> **前提：需把 STRM 目录挂载到 Emby 容器的 /strm 路径下**
+>
+> 如果你无法改变 Emby 的 STRM 目录（例如群晖套件版）的解决办法：
+>
+> 手动修改 SmartStrm 的配置文件 config.yaml ，找到 `strm_in_emby:` ，根据你 Emby 中的路径来改，重启 SS 就能按新的识别。
 
 在 `SmartStrm - Webhook - Emby 删除同步设置` 中启用功能，默认关闭。
 
@@ -165,6 +169,8 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 - **网址**： SmartStrm Webhook 地址
 - **请求内容类型**: application/json
 - **Events**: 勾选 `媒体库-媒体删除`
+
+
 
 ### Webhook 运行任务
 
