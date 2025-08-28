@@ -155,11 +155,13 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 
 ### Emby 删除同步
 
-> **前提：需把 STRM 目录挂载到 Emby 容器的 /strm 路径下**
+> **前提: SmartStrm 的 STRM 目录需挂载到 Emby 容器的 `/strm` 路径**
+>
+> 例如 SmartStrm 容器目录映射为 `/yourpath/strm:/strm` ，Emby 容器同样映射为 `/yourpath/strm:/strm`
 >
 > 如果你无法改变 Emby 的 STRM 目录（例如群晖套件版）的解决办法：
 >
-> 手动修改 SmartStrm 的配置文件 config.yaml ，找到 `strm_in_emby:` ，根据你 Emby 中的路径来改，重启 SS 就能按新的识别。
+> 手动修改 SmartStrm 的配置文件 config.yaml ，找到 `strm_in_emby:` ，修改为 SmartStrm 的 STRM 目录在 Emby 中录路径，重启 SS 就能按新的识别。
 
 在 `SmartStrm - Webhook - Emby 删除同步设置` 中启用功能，默认关闭。
 
@@ -172,6 +174,8 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 
 
 ### Webhook 运行任务
+
+除了常用的 QAS、CloudSaver 触发外，SmartStrm 还支持通过自定义 Webhook 运行任务，供开发者调用。
 
 ```bash
 curl --request POST \
@@ -311,7 +315,18 @@ body = '''
 > A: Jellyfin 的通知中缺少一些关键信息，导致 SS 无法得知要删除的路径，所以没办法支持。
 
 #### Q: 夸克播放部分资源偏色？
-> 这是个已知问题。这是流媒体和杜比的兼容性问题，无解。你可以去夸克客户端、夸克TV播这个资源验证一下，也是一样的偏色。目前已知同一个直链资源，呼出 PotPlayer 播放不会偏色，如果客户端不支持只能换资源。
+> A: 这是个已知问题。这是流媒体和杜比的兼容性问题，无解。你可以去夸克客户端、夸克TV播这个资源验证一下，也是一样的偏色。目前已知同一个直链资源，呼出 PotPlayer 播放不会偏色，如果客户端不支持只能换资源。
+
+#### Q: Emby 提示没有兼容的流如何排查？
+> 1. 找到对应的 .strm 文件，用文本编辑器打开，里面有个 URL ，复制到浏览器看能否访问。
+> 2. 检查 Emby 容器和以上 URL 的连接，如果是局域网，是否在同一个网段。
+> 3. 检查 URL 中的媒体格式，部分媒体格式可能无法被网页端解码，尝试用客户端播放。
+
+## 第三方许可证信息
+
+SmartStrm 是一个闭源项目，但站在巨人的肩膀上使用了多个开源库。我们尊重并遵守所有第三方库的许可证要求。
+
+本项目使用的第三方开源库及其许可证信息：[《第三方开源项目许可》](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/THIRD-PARTY-LICENSES.md)
 
 ## 最后
 
