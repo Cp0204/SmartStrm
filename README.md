@@ -10,7 +10,7 @@
 
 配合 Quark-Auto-Save/CloudSaver, OpenList, Emby 力求即存即看。🥳
 
-[![releases][releases-image]][docker-url] [![docker pulls][docker-pulls-image]][docker-url] [![docker image size][docker-image-size-image]][docker-url] [![telegram][telegram-image]][telegram-url]
+[![releases][releases-image]][docker-url] [![docker pulls][docker-pulls-image]][docker-url] [![docker image size][docker-image-size-image]][docker-url] [![pro][pro-image]][pro-url] [![telegram][telegram-image]][telegram-url]
 
 [telegram-image]: https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram&logoColor=white
 [releases-image]: https://img.shields.io/docker/v/cp0204/smartstrm
@@ -19,6 +19,8 @@
 [github-url]: https://github.com/Cp0204/smartstrm
 [docker-url]: https://hub.docker.com/r/cp0204/smartstrm
 [telegram-url]: https://t.me/smartstrm
+[pro-image]: https://img.shields.io/badge/SmartStrm-Pro-FFC107?logo=simkl&logoColor=white&labelColor=00A2E9
+[pro-url]: https://afdian.com/item/cd39184033a811f0b60b52540025c377
 
 ![run_log](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/img/main.png)
 
@@ -344,12 +346,16 @@ SmartStrm 是一个闭源项目，但站在巨人的肩膀上使用了多个开�
 
 ## 最后
 
-感谢你看到这里，感谢你了解这个项目。这个项目起源于我在用过同类 STRM 工具后，始终找不到一款符合完美期望的，于是尝试自己写一个。
+感谢你看到这里，感谢你了解这个项目。
 
-SmartStrm 的定位是媒体库 STRM 生成工具，是打通网络存储和私有媒体库的最后一块拼图。
+这个项目最开始源自于 夸克自动转存(QAS) 的一次 [PR 讨论](https://github.com/Cp0204/quark-auto-save/pull/65#issuecomment-2779488163)，以及用过同类 STRM 后，自己用着处处不顺手（需求精准生成、速度快、方便调用）。
 
-如果说 QAS 是练手项目，那么 SmartStrm 就是用心之作，其中包含了大量相互联动的巧思、对新手友好的设计。
+所以立项之初就决定了要和 QAS 能联动，后来也和 CloudSaver 作者一拍即合，基本做到这俩工具转存后就能生成 STRM、Emby 入库一条龙，这里有一个[演示视频](https://www.bilibili.com/video/BV1wtaAzCEBv/)。
 
-正如其名，它希望尽可能地为你减少繁杂的操作和配置，让你感觉就是“好用”！
+用 STRM 的方式播 115、天翼、夸克的资源，和 QAS、CS 联动转存即触发生成，个人认为一点已经可以优于同类工具了。
+
+不仅于此，SmartStrm 未直接支持的网盘，同样可以用 OpenList 来转接。
+
+作为一个工具类软件，我希望它足够精巧优雅，就像一块积木，和其他积木一起拼在一起，在你的 NAS 中组合成你自己的观影自动化方案。
 
 希望你能喜欢。
