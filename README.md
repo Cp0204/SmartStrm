@@ -10,7 +10,7 @@
 
 配合 Quark-Auto-Save/CloudSaver, OpenList, Emby 力求即存即看。🥳
 
-[![releases][releases-image]][docker-url] [![docker pulls][docker-pulls-image]][docker-url] [![docker image size][docker-image-size-image]][docker-url] [![pro][pro-image]][pro-url] [![telegram][telegram-image]][telegram-url]
+[![releases][releases-image]][docker-url] [![docker-pulls][docker-pulls-image]][docker-url] [![docker-image-size][docker-image-size-image]][docker-url] [![pro][pro-image]][pro-url] [![telegram][telegram-image]][telegram-url]
 
 [telegram-image]: https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram&logoColor=white
 [releases-image]: https://img.shields.io/docker/v/cp0204/smartstrm
@@ -22,7 +22,7 @@
 [pro-image]: https://img.shields.io/badge/SmartStrm-Pro-FFC107?logo=simkl&logoColor=white&labelColor=00A2E9
 [pro-url]: https://afdian.com/item/cd39184033a811f0b60b52540025c377
 
-![run_log](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/img/main.png)
+![main_page](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/img/main.png)
 
 </div>
 
@@ -136,7 +136,7 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 
 ### 转存自动生成STRM
 
-支持和 `quark-auto-save` `CloudSaver` 联动，在转存后触发任务。支持**仅触发转存的那一个文件夹，秒级生成**。
+支持和 `quark-auto-save` `CloudSaver` 联动，在转存后触发任务。支持**仅触发转存的目标文件夹，秒级生成**。
 
 #### quark-auto-save 插件
 
@@ -231,12 +231,19 @@ curl --request POST \
 
 并设置 **存储映射** ，有两种联动方式：
 
-1. 两边各添加同一网盘的同一账号（推荐）：目前支持 115、天翼云盘，填写格式为 `A=A1,B=B1,C=C1,CD2_NAME=SS_NAME` 表示把 CD2 的 A 存储映射到 SS 的 A1 存储。
+1. 两边各添加同一网盘的同一账号（推荐）：目前支持 115、天翼云盘，填写格式为 `A=A1,B=B1,C=C1` 表示把 CD2 的 A 存储映射到 SS 的 A1 存储。
 
 2. 利用 CD2 的 WebDAV 功能，把 CD2 添加为 WebDAV 存储，该方式所有文件请求流量经过CD2。
    1. 如添加 CD2 名为 `115open` 的存储到 SS 的 `115openA` ，WebDAV 地址 `http://yoururl:19798/dav/115open` ，映射填写格式同上如 `115open=115openA`。
    2. 也可以加整个 CD2 根目录，假如在 SS 名为 `CD2_DAV` 存储，填写格式为 `/=CD2_DAV`；但有以上指定存储映射时优先用指定的映射。
 
+> [!TIP]
+>
+> **使用实例：** 使用115网盘，在CD2的名称是 `115` ，在 SS 的名称是 `open115_Cp0204`
+>
+> 在 SS 中填写存储映射 `115=open115_Cp0204` ，同时创建路径为 `/影视库/电影`、`/影视库/剧集` 的任务
+>
+> 当 CD2 中检测到 `/115/影视库/电影/xxx` 变更时，SS 会根据变更的文件路径，自动找到要触发的任务。
 
 <details>
 <summary>CloudDrive2 Webhook 配置</summary>
@@ -308,7 +315,7 @@ body = '''
 
 ## Q&A
 
-#### Q: 是否支持网盘转存、自动转存？
+#### Q: 是否支持网盘资源转存、自动转存？
 > A: 暂无计划，做好一件事，少即是多。市面上已经有不少转存工具，不重复造轮子，除非我有信心做成最好用的轮子。
 
 #### Q: 免费和收费？
