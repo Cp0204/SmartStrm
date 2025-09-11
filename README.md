@@ -22,6 +22,8 @@
 [pro-image]: https://img.shields.io/badge/SmartStrm-Pro-FFC107?logo=simkl&logoColor=white&labelColor=00A2E9
 [pro-url]: https://afdian.com/item/cd39184033a811f0b60b52540025c377
 
+[快速部署](#部署) | [保姆教程](#第三方教程) | [进阶玩法](#进阶使用) | [常见答疑](#qa)
+
 ![main_page](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/img/main.png)
 
 </div>

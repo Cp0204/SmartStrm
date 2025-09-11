@@ -10,7 +10,7 @@ on:
       - .github/workflows/dockerhub-description.yml
 
 jobs:
-  dockerHubDescription:
+  dockerhub-description:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,5 +22,5 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           repository: ${{ github.repository }}
-          short-description: ${{ github.event.repository.description }}
+          # short-description: ${{ github.event.repository.description }}
           enable-url-completion: true
