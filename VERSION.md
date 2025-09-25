@@ -1,5 +1,15 @@
 # SmartStrm What's New
 
+## v0.0.11
+
+- STRM 生成
+  - 修复同名媒体的元数据文件名匹配逻辑
+- 驱动
+  - 夸克：修复部分视频有画面没有声音
+- Webhook
+  - 为 a_task, qas_strm, cs_strm, web_save 事件增加延迟执行支持
+  - 改进 a_task 事件的 strm 字典处理逻辑为可选覆盖
+
 ## v0.0.10
 
 - 驱动
