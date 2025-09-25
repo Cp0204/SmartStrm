@@ -52,6 +52,7 @@
   - 指定复制的文件后缀
 - Webhook
   - 联动 QAS、CloudSaver 转存即触发任务
+  - 配合油猴脚本，网页转存即触发任务
   - Emby 中删除媒体，同步删除远端文件
   - CloudDrive2 文件变更通知实时触发任务 (Pro)
 - 粗糙但极其友好的管理页面
@@ -157,6 +158,7 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 - **event**: `cs_strm`
 - **savepath**: `/{savePath}`
 - **xlist_path_fix**: 任务使用夸克网盘、天翼云盘驱动时无须填写；使用 OpenList 驱动时需填写，夸克网盘同QAS，天翼云盘 `/你挂载在oplist的路径:/全部文件` ，只改动 : 前面部分，后面 /全部文件 保持不变。
+- **delay**: `0` 可选，延迟执行的秒数
 
 <details>
 <summary>天翼网盘配置示例图</summary>
@@ -203,6 +205,7 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --data '{
     "event": "a_task",
+    "delay": 0,
     "task": {
         "name": "test",
         "storage_path": "/drive/quark/test"
@@ -225,6 +228,7 @@ curl --request POST \
 其中：
 
 - `event` 是事件名，固定不变
+- `delay` 可选，延迟执行的秒数
 - `task.name` 必须为已存在的任务名，仅支持单个
 - `task.storage_path` 可选，填写时必须为任务的路径或子路径
 - `strm` 字典可选，如缺省则使用系统设置
