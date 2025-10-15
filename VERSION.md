@@ -1,5 +1,11 @@
 # SmartStrm What's New
 
+## v0.1.1
+
+- 插件
+  - 非法文件名修正：添加 `"` 为 Windows 文件名非法字符
+  - 新增 Infuse.ISO兼容 插件：以 .iso.strm 为后缀命名生成 ISO 文件
+
 ## v0.1.0
 
 - STRM 生成
