@@ -50,6 +50,7 @@
   - 增量/同步生成：可清理远端已删文件
   - 指定生成的媒体后缀、文件大小阈值
   - 指定复制的文件后缀
+  - 本地存储实时监听生成
 - Webhook
   - 联动 QAS、CloudSaver 转存即触发任务
   - 配合油猴脚本，网页转存即触发任务
@@ -108,6 +109,32 @@ services:
 docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtower -cR smartstrm
 ```
 
+### 环境变量
+
+| 变量名              | 默认值     | 描述                 |
+| ------------------- | ---------- | -------------------- |
+| `PORT`              | `8024`     | 管理端口             |
+| `ADMIN_USERNAME`    | `admin`    | 管理用户名           |
+| `ADMIN_PASSWORD`    | `admin123` | 管理用户密码         |
+| `LICENSE`           |            | 许可证字符串（如有） |
+| `MAINLOG_MAX_DAYS`  | `7`        | 容器日志保存天数     |
+| `TASKLOG_MAX_LINES` | `1000`     | 任务日志保存行数     |
+
+## 版本区别
+
+| 功能                      | 基础版 | Pro版 |
+| ------------------------- | ------ | ----- |
+| STRM 生成                 | ✅      | ✅     |
+| 支持多种存储驱动          | ✅      | ✅     |
+| Emby 删除同步             | ✅      | ✅     |
+| 网页、QAS、CS转存触发任务 | ✅      | ✅     |
+| 全局插件                  | ✅      | ✅     |
+| 任务级插件                | ⏰      | ✅     |
+| 302代理-转直链播放        | ❌      | ✅     |
+| CD2 WebHook               | ❌      | ✅     |
+| 本地存储实时监听          | ❌      | ✅     |
+
+> ✅支持 ❌不支持 ⏰限时免费
 ## 使用
 
 **原理：** [STRM 文件](https://emby.media/support/articles/Strm-Files.html) 是一个网络资源的快捷方式，它使得无须在本地存储媒体文件，让 Emby 播放时再直接从网络上请求媒体资源，因扫描媒体库只识别文件名，而不用读取媒体文件内容，所以入库极快。支持 STRM 文件的有 Emby, Jellyfin, Kodi 等。
