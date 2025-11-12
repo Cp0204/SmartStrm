@@ -12,6 +12,7 @@
 | webdavclient3         | MIT          | WebDAV客户端实现            |
 | python-dotenv         | BSD-3-Clause | 从.env文件加载环境变量      |
 | requests              | Apache-2.0   | Python HTTP库               |
+| watchdog              | Apache-2.0   | 监控文件系统事件            |
 | Flask-Minify          | MIT          | Flask压缩HTML扩展           |
 | aiohttp               | Apache-2.0   | 异步HTTP客户端/服务器框架   |
 | pycryptodome          | BSD-2-Clause | Python密码学工具包          |
