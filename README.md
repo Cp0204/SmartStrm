@@ -13,7 +13,7 @@
 [![releases][releases-image]][docker-url] [![docker-pulls][docker-pulls-image]][docker-url] [![docker-image-size][docker-image-size-image]][docker-url] [![pro][pro-image]][pro-url] [![telegram][telegram-image]][telegram-url]
 
 [telegram-image]: https://img.shields.io/badge/Telegram-2CA5E0?logo=telegram&logoColor=white
-[releases-image]: https://img.shields.io/docker/v/cp0204/smartstrm
+[releases-image]: https://img.shields.io/github/tag/cp0204/smartstrm?label=releases
 [docker-pulls-image]: https://img.shields.io/docker/pulls/cp0204/smartstrm?logo=docker&&logoColor=white
 [docker-image-size-image]: https://img.shields.io/docker/image-size/cp0204/smartstrm?logo=docker&&logoColor=white
 [github-url]: https://github.com/Cp0204/smartstrm
