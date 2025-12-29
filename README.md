@@ -135,7 +135,7 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 | 全局插件                  | ✅      | ✅     |
 | 任务级插件                | ⏰      | ✅     |
 | 飞牛影视刷新 插件         | 🔢      | ✅     |
-| 302代理-转直链播放        | ❌      | ✅     |
+| 302代理-直链播放          | ❌      | ✅     |
 | CD2 WebHook               | ❌      | ✅     |
 | 本地存储实时监听          | ❌      | ✅     |
 
@@ -163,10 +163,11 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 - [保姆级图文：SmartStrm 部署，配置 Emby 媒体库，CloudSaver+QAS 联动，一站式302](https://linux.do/t/topic/924963)
 - [保姆级图文：QAS+SmartStrm 部署、追更秒入库丝滑体验](https://zhuanlan.zhihu.com/p/1943376528730756600)
 - [保姆级图文：SmartStrm +Emby +OpenList +Emby 联动删除直链播放，零成本NAS播放完全指南](https://post.smzdm.com/p/amon9plz/)
+- [玩法教程：SmartStrm + Openlist + 绿联影视中心 避免网盘风控](https://club.ugnas.com/forum.php?mod=viewthread&tid=2037)
 
 > [!TIP]
 >
-> 🥰 **感谢：** 噜啦噜啦萝卜、Jochen、SunnyD、太阳营业了、寒梅别有韵 为新手用户做出的贡献！🥰
+> 🥰 **感谢教程作者：** 噜啦噜啦萝卜、Jochen、SunnyD、太阳营业了、寒梅别有、韵茂茂阿 作出的贡献！🥰
 > *（排名不分先后）*
 
 ## 进阶使用
