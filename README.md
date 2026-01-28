@@ -462,11 +462,11 @@ Plex 自身有穿透机制，需要调整远程设置才能将代理端口提供
 >
 > 入库快，免下载、在线播放，但起播速度会变慢。这是 STRM 的优点，也是不可避免有弊端。使用下来通常在10秒内起播，个人认为可以接受，无须盲目追求起播速度。
 
-## 第三方许可证信息
+## 开放源代码许可
 
-SmartStrm 是一个闭源项目，但站在巨人的肩膀上使用了多个开源库。我们尊重并遵守所有第三方库的许可证要求。
+SmartStrm 是一个闭源项目，但站在巨人的肩膀上使用了多个开源库。我们尊重并遵守所有第三方开放源代码的许可要求。
 
-本项目使用的第三方开源库及其许可证信息：[《第三方开源项目许可》](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/THIRD-PARTY-LICENSES.md)
+本项目使用的开放源代码及其许可证信息：[《开放源代码许可》](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/OPEN-SOURCE-SOFTWARE-NOTICE.md)
 
 ## 最后
 

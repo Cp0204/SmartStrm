@@ -1,29 +1,34 @@
-# 第三方许可证信息
+# OPEN SOURCE SOFTWARE NOTICE
 
-本项目是一个闭源项目，但使用了多个开源库。我们尊重并遵守所有第三方库的许可证要求。以下是本项目使用的第三方开源库及其许可证信息：
+This document contains licenses and notices for open source software used in this product.
 
-## 许可证列表
+Warranty Disclaimer
+The open source software in this product is offered without any warranty, including but not limited to the general usability or fitness for a particular purpose.
 
-| 名称                  | 许可证       | 描述                        |
-| --------------------- | ------------ | --------------------------- |
-| Flask                 | BSD-3-Clause | 用于构建Web应用的Python框架 |
-| ruamel.yaml           | MIT          | YAML解析器/生成器           |
-| APScheduler           | MIT          | 高级Python定时任务调度库    |
-| webdavclient3         | MIT          | WebDAV客户端实现            |
-| python-dotenv         | BSD-3-Clause | 从.env文件加载环境变量      |
-| requests              | Apache-2.0   | Python HTTP库               |
-| watchdog              | Apache-2.0   | 监控文件系统事件            |
-| Flask-Minify          | MIT          | Flask压缩HTML扩展           |
-| aiohttp               | Apache-2.0   | 异步HTTP客户端/服务器框架   |
-| pycryptodome          | BSD-2-Clause | Python密码学工具包          |
-| Brotli                | MIT          | Brotli压缩格式实现          |
-| xmltodict             | MIT          | XML到字典的转换器           |
-| embyWebAddExternalUrl | MIT          | Emby外部播放器调用脚本      |
-| Bootstrap             | MIT          | CSS框架                     |
-| Axios                 | MIT          | HTTP异步客户端              |
-| Vue.js                | MIT          | 前端框架                    |
+## Open Source Software License List
 
-## 许可证文本
+| Name                  | License      | Description                               |
+| --------------------- | ------------ | ----------------------------------------- |
+| Flask                 | BSD-3-Clause | Python web framework                      |
+| ruamel.yaml           | MIT          | YAML parser/emitter                       |
+| APScheduler           | MIT          | Advanced Python task scheduler            |
+| webdavclient3         | MIT          | WebDAV client implementation              |
+| python-dotenv         | BSD-3-Clause | Loads environment variables from .env     |
+| requests              | Apache-2.0   | Python HTTP library                       |
+| watchdog              | Apache-2.0   | Monitors filesystem events                |
+| Flask-Minify          | MIT          | Flask HTML minification extension         |
+| aiohttp               | Apache-2.0   | Asynchronous HTTP client/server framework |
+| pycryptodome          | BSD-2-Clause | Python cryptography toolkit               |
+| Brotli                | MIT          | Brotli compression format implementation  |
+| xmltodict             | MIT          | XML to dictionary converter               |
+| embyWebAddExternalUrl | MIT          | Emby external player script               |
+| Bootstrap             | MIT          | CSS framework                             |
+| Axios                 | MIT          | Promise-based HTTP client                 |
+| Vue.js                | MIT          | Progressive JavaScript framework          |
+| pyfnos                | Apache-2.0   | Non-official Python SDK for fnOS          |
+| websockets            | BSD-3-Clause | WebSocket servers and clients in Python   |
+
+## Copyright Notice and License Texts
 
 ### BSD-3-Clause
 ```
@@ -87,6 +92,6 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 ```
 
-## 联系
+## Contact Information
 
-如有任何关于许可证的问题，请联系项目维护者。
+If you have any questions about the licenses, please contact the project maintainer.
