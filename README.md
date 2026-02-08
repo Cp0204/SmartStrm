@@ -112,14 +112,14 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 
 ### 环境变量
 
-| 变量名              | 默认值     | 描述                 |
-| ------------------- | ---------- | -------------------- |
-| `PORT`              | `8024`     | 管理端口             |
-| `ADMIN_USERNAME`    | `admin`    | 管理用户名           |
-| `ADMIN_PASSWORD`    | `admin123` | 管理用户密码         |
-| `MAINLOG_MAX_DAYS`  | `7`        | 容器日志保存天数     |
-| `TASKLOG_MAX_LINES` | `1000`     | 任务日志保存行数     |
-| `ENABLE_IPV6`       | `true`     | 启用 IPv6 支持       |
+| 变量名              | 默认值     | 描述             |
+| ------------------- | ---------- | ---------------- |
+| `PORT`              | `8024`     | 管理端口         |
+| `ADMIN_USERNAME`    | `admin`    | 管理用户名       |
+| `ADMIN_PASSWORD`    | `admin123` | 管理用户密码     |
+| `MAINLOG_MAX_DAYS`  | `7`        | 容器日志保存天数 |
+| `TASKLOG_MAX_LINES` | `1000`     | 任务日志保存行数 |
+| `ENABLE_IPV6`       | `true`     | 启用 IPv6 支持   |
 
 ## 版本区别
 
@@ -157,15 +157,16 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 
 - [视频教程：10分钟搞定！飞牛OS部署 SmartStrm+Emby 最强联动](https://www.bilibili.com/video/BV14shdzaEY7/)
 - [视频教程：SmartStrm 302 原理，使用演示，在外秒播云盘资源](https://www.bilibili.com/video/BV1DKaGzUEP7/)
-- [保姆级图文：SmartStrm + Emby：夸克网盘 302 直链播放完全指南](https://club.fnnas.com/forum.php?mod=viewthread&tid=36387)
-- [保姆级图文：SmartStrm 部署，配置 Emby 媒体库，CloudSaver+QAS 联动，一站式302](https://linux.do/t/topic/924963)
-- [保姆级图文：QAS+SmartStrm 部署、追更秒入库丝滑体验](https://zhuanlan.zhihu.com/p/1943376528730756600)
-- [保姆级图文：SmartStrm +Emby +OpenList +Emby 联动删除直链播放，零成本NAS播放完全指南](https://post.smzdm.com/p/amon9plz/)
+- [图文教程：SmartStrm + Emby：夸克网盘 302 直链播放完全指南](https://club.fnnas.com/forum.php?mod=viewthread&tid=36387)
+- [图文教程：SmartStrm 部署，配置 Emby 媒体库，CloudSaver+QAS 联动，一站式302](https://linux.do/t/topic/924963)
+- [图文教程：QAS+SmartStrm 部署、追更秒入库丝滑体验](https://zhuanlan.zhihu.com/p/1943376528730756600)
+- [图文教程：SmartStrm +Emby +OpenList +Emby 联动删除直链播放，零成本NAS播放完全指南](https://post.smzdm.com/p/amon9plz/)
 - [玩法教程：SmartStrm + Openlist + 绿联影视中心 避免网盘风控](https://club.ugnas.com/forum.php?mod=viewthread&tid=2037)
+- [图文教程：飞牛影视配置STRM指南](https://www.wifilu.com/4683.html)
 
 > [!TIP]
 >
-> 🥰 **感谢教程作者：** 噜啦噜啦萝卜、Jochen、SunnyD、太阳营业了、寒梅别有、韵茂茂阿 作出的贡献！🥰
+> 🥰 **感谢教程作者：** 噜啦噜啦萝卜、Jochen、SunnyD、太阳营业了、寒梅别有、韵茂茂阿、WIFI之路 作出的贡献！🥰
 > *（排名不分先后）*
 
 ## 进阶使用
