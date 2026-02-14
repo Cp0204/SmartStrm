@@ -1,5 +1,5 @@
 {
   "version": "v0.4.1",
-  "notify": "",
+  "notify": "2月12日起，受夸克API改动影响无法获取302直链，具体表现为回落到NAS代理，仅转码直链播放失败，日志报错 [plf_invalid] ，测试的解决方案详见<a target='_blank' href='https://github.com/Cp0204/SmartStrm/issues/57'>#57</a>",
   "change_log_url": "https://github.com/Cp0204/SmartStrm/blob/main/VERSION.md"
 }
