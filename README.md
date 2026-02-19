@@ -20,7 +20,7 @@
 [docker-url]: https://hub.docker.com/r/cp0204/smartstrm
 [telegram-url]: https://t.me/smartstrm
 [pro-image]: https://img.shields.io/badge/SmartStrm-Pro-FFC107?logo=simkl&logoColor=white&labelColor=00A2E9
-[pro-url]: https://afdian.com/item/cd39184033a811f0b60b52540025c377
+[pro-url]: https://licenserver.0x69.win/store/smartstrm
 
 [快速部署](#部署) | [保姆教程](#第三方教程) | [进阶玩法](#进阶使用) | [常见答疑](#qa)
 
@@ -416,7 +416,7 @@ Plex 自身有穿透机制，需要调整远程设置才能将代理端口提供
 
 #### Q: 如何订阅和激活 Pro？
 > 目前依托爱发电平台自助订阅：
-> 1. [订阅入口](https://afdian.com/item/cd39184033a811f0b60b52540025c377)；
+> 1. [订阅入口](https://licenserver.0x69.win/store/smartstrm)；
 > 2. 在 SmartStrm 后台的左下角，点 “免费版” 可以跳转，已经是 Pro 的，点击时间可以跳转到续订，容器重启后生效。
 >
 > 订阅成功后，密钥邮件自动发送，将密钥在 `系统设置-关于` 中验证即可，谢谢支持！
