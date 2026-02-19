@@ -1,5 +1,18 @@
 # SmartStrm What's New
 
+## v0.4.2
+- 驱动
+  - 夸克：适配夸克API变更（302转码直链播放失败，报plf_invalid错误），目前的解决方案需要抓取移动端URL，详见 [#57](https://github.com/Cp0204/SmartStrm/issues/57)
+  - OpenList：修复配置了 site_url 二级目录的连接
+- 302
+  - 修复 https 反代环境下链接协议问题
+- 重命名
+  - 影视识别增加 `{title_original}` 变量支持
+- 其他
+  - 增加 robots.txt 禁止搜索引擎收录
+  - 优化设置界面样式与说明
+  - 支持 LINUX DO Credit 兑换 (Beta)
+
 ## v0.4.1
 - 任务
   - 优化任务状态查询方法与异常处理，修复错误的 crontab （如2月31日） 导致的白屏
