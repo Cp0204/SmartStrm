@@ -1,5 +1,14 @@
 # SmartStrm What's New
 
+## v0.4.3
+- 驱动
+  - **新增 夸克网盘TV 驱动**：支持扫码登录，更友好地支持 302 直链
+- Webhook
+  - 优化 CloudDrive2 触发任务的处理逻辑：修复某些场景下提早提取父目录导致失去匹配任务路径的问题
+  - 增强 CloudDrive2 存储映射：支持映射到 SS 存储的子路径，填写格式为 `cd2_storage=ss_storage/path`
+- UI
+  - 统一 夸克网盘/TV 驱动参数文案：原 `STRM 模式` -> `STRM 资源请求方式`
+
 ## v0.4.2
 - 驱动
   - 夸克：适配夸克API变更（302转码直链播放失败，报plf_invalid错误），目前的解决方案需要抓取移动端URL，详见 [#57](https://github.com/Cp0204/SmartStrm/issues/57)
