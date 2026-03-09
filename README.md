@@ -30,13 +30,12 @@
 
 > [!TIP]
 >
-> 有不少新手提到希望有较详细的视频或图文教程，因为~~作者很懒~~ ~~想把有限的时间花在代码上~~ 写教程宁愿写代码。**即日起，各位大佬在公众号、B站、知乎、值得买等平台发布 SmartStrm 教程，图文视频均可，对其他用户有帮助的，根据内容质量可兑换1~2年Pro，已购可续**，内容可以但不限于在各NAS系统的部署方法、和 OpenList、QAS、CS 联动配置、Emby、Jellyfin 入库配置、302代理等。**注意，教程演示请勿使用国内版权资源。**
+> 有不少新手提到希望有较详细的视频或图文教程，因为~~作者很懒~~写教程宁愿写代码。**即日起，各位大佬在公众号、B站、知乎、值得买等平台发布 SmartStrm 教程，图文视频均可，对其他用户有帮助的，根据内容质量可兑换1~2年Pro，已购可续**，内容可以但不限于在各NAS系统的部署方法、和 OpenList、QAS、CS 联动配置、Emby、Jellyfin 入库配置、302代理等。**注意，教程演示请勿使用国内版权资源。**
 >
 > **兑换方式：** 将内容链接、平台登录截图（证明账号所有权）邮件到 Cp0204(at)163.com<sup>[1]</sup>，这则公告还挂着就长期有效。参加并兑换成功默认视为授权 SmartStrm 对内容公开引用、保留原作者信息前提下的[整理和转载](#第三方教程)。
 >
 > * *[1] 邮件不回复任何一对一的使用咨询，如果你有此类问题，请加TG群交流*
->
-> *如果教程涉及 Pro 功能，但你还没有，可以先邮件发内容规划（什么平台发什么内容），领取 5 天体验*
+
 
 ## 特性
 
@@ -120,6 +119,7 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 | `MAINLOG_MAX_DAYS`  | `7`        | 容器日志保存天数 |
 | `TASKLOG_MAX_LINES` | `1000`     | 任务日志保存行数 |
 | `ENABLE_IPV6`       | `true`     | 启用 IPv6 支持   |
+| `LOGIN_ENTRY`       | `login`    | 安全登录入口     |
 
 ## 版本区别
 
@@ -163,10 +163,12 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 - [图文教程：SmartStrm +Emby +OpenList +Emby 联动删除直链播放，零成本NAS播放完全指南](https://post.smzdm.com/p/amon9plz/)
 - [玩法教程：SmartStrm + Openlist + 绿联影视中心 避免网盘风控](https://club.ugnas.com/forum.php?mod=viewthread&tid=2037)
 - [图文教程：飞牛影视配置STRM指南](https://www.wifilu.com/4683.html)
+- [图文教程：搭建Emby+SmartStrm实现网盘影音丝滑播放](https://mp.weixin.qq.com/s/cGc19triWkT5v_EjOvt0ig)
+- [Docker推荐：Strm生成工具SmartStrm](https://mp.weixin.qq.com/s/q_Yz77DnZ4nRf3EjWaVxjg)
 
 > [!TIP]
 >
-> 🥰 **感谢教程作者：** 噜啦噜啦萝卜、Jochen、SunnyD、太阳营业了、寒梅别有、韵茂茂阿、WIFI之路 作出的贡献！🥰
+> 🥰 **感谢教程作者：** 噜啦噜啦萝卜、Jochen、SunnyD、太阳营业了、寒梅别有、韵茂茂阿、WIFI之路、Leander、杰瑞先森 作出的贡献！🥰
 > *（排名不分先后）*
 
 ## 进阶使用
@@ -463,24 +465,14 @@ Plex 自身有穿透机制，需要调整远程设置才能将代理端口提供
 >
 > 入库快，免下载、在线播放，但起播速度会变慢。这是 STRM 的优点，也是不可避免有弊端。使用下来通常在10秒内起播，个人认为可以接受，无须盲目追求起播速度。
 
-## 开放源代码许可
+## LICENSE
 
-SmartStrm 是一个闭源项目，但站在巨人的肩膀上使用了多个开源库。我们尊重并遵守所有第三方开放源代码的许可要求。
+SmartStrm（以下简称“本应用”）是一个闭源项目，但站在巨人的肩膀上使用了多个开源库。我们尊重并遵守其 [《开放源代码许可》](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/OPEN-SOURCE-SOFTWARE-NOTICE.md) 要求。
 
-本项目使用的开放源代码及其许可证信息：[《开放源代码许可》](https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/OPEN-SOURCE-SOFTWARE-NOTICE.md)
+1. **项目性质与目的**：本应用旨在通过程序自动化提高网络服务的使用效率，没有对第三方的破解行为，只是对于已有的 API 进行封装和调用。若需达到最佳使用体验，用户仍需开通相关平台的付费服务。
 
-## 最后
+2. **数据来源与责任限制**：本应用所处理的数据均直接或间接来源于第三方，开发者不对网盘中用户上传、存储的任何内容的合法性、准确性、完整性、安全性以及任何潜在的侵权行为负责，用户应自行评估并承担由此产生的一切风险。
 
-感谢你看到这里，感谢你了解这个项目。
+3. **非商业用途与严禁非法用途**：本应用仅供个人学习、研究与交流使用，开发者禁止用户将本应用用于任何商业行为与非法用途。用户若将本应用用于非法用途，应独立承担所有法律责任，开发者不承担任何连带责任。
 
-这个项目最开始源自于 夸克自动转存(QAS) 的一次 [PR 讨论](https://github.com/Cp0204/quark-auto-save/pull/65#issuecomment-2779488163)，以及用过同类 STRM 后，自己用着处处不顺手（需求精准生成、速度快、方便调用）。
-
-所以立项之初就决定了要和 QAS 能联动，后来也和 CloudSaver 作者一拍即合，基本做到这俩工具转存后就能生成 STRM、Emby 入库一条龙，这里有一个[演示视频](https://www.bilibili.com/video/BV1wtaAzCEBv/)。
-
-用 STRM 的方式播 115、天翼、夸克的资源，和 QAS、CS 联动转存即触发生成，个人认为一点已经可以优于同类工具了。
-
-不仅于此，SmartStrm 未直接支持的网盘，同样可以用 OpenList 来转接。
-
-作为一个工具类软件，我希望它足够精巧优雅，就像一块积木，和其他积木一起拼在一起，在你的 NAS 中组合成你自己的观影自动化方案。
-
-希望你能喜欢。
+通过继续使用本应用，您即被视为已完全理解并接受上述所有条款和条件。
