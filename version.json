@@ -1,5 +1,5 @@
 {
-  "version": "v0.4.5",
+  "version": "v0.4.6",
   "notify": "<b>v0.4.5 新增安全改进：<span class='text-danger'>所有版本更新到此版本将默认开启签名功能，或将导致 STRM 播放失败，请重新生成或手动关闭签名</span></b>",
   "change_log_url": "https://github.com/Cp0204/SmartStrm/blob/main/VERSION.md"
 }
