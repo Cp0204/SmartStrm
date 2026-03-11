@@ -162,7 +162,6 @@ docker run --rm -v /var/run/docker.sock:/var/run/docker.sock containrrr/watchtow
 - [图文教程：QAS+SmartStrm 部署、追更秒入库丝滑体验](https://zhuanlan.zhihu.com/p/1943376528730756600)
 - [图文教程：SmartStrm +Emby +OpenList +Emby 联动删除直链播放，零成本NAS播放完全指南](https://post.smzdm.com/p/amon9plz/)
 - [玩法教程：SmartStrm + Openlist + 绿联影视中心 避免网盘风控](https://club.ugnas.com/forum.php?mod=viewthread&tid=2037)
-- [图文教程：飞牛影视配置STRM指南](https://www.wifilu.com/4683.html)
 - [图文教程：搭建Emby+SmartStrm实现网盘影音丝滑播放](https://mp.weixin.qq.com/s/cGc19triWkT5v_EjOvt0ig)
 - [Docker推荐：Strm生成工具SmartStrm](https://mp.weixin.qq.com/s/q_Yz77DnZ4nRf3EjWaVxjg)
 
