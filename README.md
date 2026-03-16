@@ -11,7 +11,7 @@
 
 配合 Quark-Auto-Save/CloudSaver, OpenList, Emby 力求即存即看。🥳
 
-[**项目文档**](https://smartstrm.github.io) · [快速部署](https://smartstrm.github.io/guide/deploy) · [保姆教程](https://smartstrm.github.io/help/tutorials) · [进阶玩法](https://smartstrm.github.io/settings/webhook) · [常见问题](https://smartstrm.github.io/help/faq) · [更新日志](https://github.com/Cp0204/SmartStrm/blob/main/VERSION.md)
+[**项目文档**](https://smartstrm.github.io) · [快速部署](https://smartstrm.github.io/guide/deploy) · [保姆教程](https://smartstrm.github.io/help/tutorials) · [进阶玩法](https://smartstrm.github.io/settings/webhook) · [常见问题](https://smartstrm.github.io/help/faq) · [更新日志](https://smartstrm.github.io/help/changelog)
 
 [![releases][releases-image]][docker-url] [![docker-pulls][docker-pulls-image]][docker-url] [![docker-image-size][docker-image-size-image]][docker-url] [![pro][pro-image]][pro-url] [![telegram][telegram-image]][telegram-url]
 
