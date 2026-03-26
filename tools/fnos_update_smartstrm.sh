@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # bash <(sudo wget -qO- https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/tools/fnos_update_smartstrm.sh)
+# 使用代理: 添加 --proxy 参数
+# bash <(sudo wget -qO- https://github.com/Cp0204/SmartStrm/raw/refs/heads/main/tools/fnos_update_smartstrm.sh) --proxy
 
 # 定义颜色
 RED='\033[0;31m'
@@ -9,8 +11,30 @@ YELLOW='\033[0;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-# 代理镜像地址
+# 代理设置
+USE_PROXY=false
 GITHUB_PROXY="https://wget.la/"
+
+# 解析命令行参数
+for arg in "$@"; do
+    case $arg in
+        --proxy)
+            USE_PROXY=true
+            shift
+            ;;
+        *)
+            # 忽略未知参数
+            ;;
+    esac
+done
+
+# 根据参数决定是否使用代理
+if [ "$USE_PROXY" = true ]; then
+    echo -e "${YELLOW}启用代理: ${GITHUB_PROXY}${NC}"
+else
+    GITHUB_PROXY=""
+    echo -e "${YELLOW}未启用代理，直接连接${NC}"
+fi
 
 # 默认版本变量
 DEFAULT_VERSION=""
@@ -101,7 +125,7 @@ echo -e "${BLUE}>> 检测系统架构...${NC}"
 ARCH=$(uname -m)
 if [ "$ARCH" = "x86_64" ] || [ "$ARCH" = "x86" ]; then
     ARCH="x86"
-elif [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
+    elif [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
     ARCH="arm"
 else
     echo -e "${RED}错误: 不支持的架构 $ARCH。默认使用 x86。${NC}"
@@ -118,6 +142,7 @@ LATEST_VERSION_TAG=$(echo "$LATEST_RELEASE_INFO" | grep -oP '"tag_name": "\Kv[^"
 
 if [ -z "$LATEST_VERSION_TAG" ]; then
     echo -e "${RED}错误: 无法获取最新版本号。请检查代理或网络。${NC}"
+    echo -e "${YELLOW}调试信息: 尝试访问 ${GITHUB_PROXY}${GITHUB_API_URL_BASE}${NC}"
     exit 1
 else
     DEFAULT_VERSION=$(echo "$LATEST_VERSION_TAG" | sed 's/^v//')
