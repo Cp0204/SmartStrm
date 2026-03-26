@@ -96,36 +96,44 @@ function cleanup {
 }
 trap cleanup EXIT
 
-# --- 3. 获取用户输入版本或尝试获取最新版本 ---
-read -p "请输入 SmartStrm 版本号 (格式 x.x.x 直接回车获取最新版): " USER_VERSION
-
-if [ -z "$USER_VERSION" ]; then
-    echo -e "${YELLOW}>> 获取最新版本...${NC}"
-    echo -e "${YELLOW}>> 使用代理：${GITHUB_PROXY}${NC}"
-    # 使用代理访问 GitHub API
-    LATEST_RELEASE_INFO=$(curl -s "${GITHUB_PROXY}${GITHUB_API_URL_BASE}")
-    LATEST_VERSION_TAG=$(echo "$LATEST_RELEASE_INFO" | grep -oP '"tag_name": "\Kv[^"]+')
-
-    if [ -z "$LATEST_VERSION_TAG" ]; then
-        echo -e "${RED}错误: 无法获取最新版本号。请检查代理或网络，或手动指定版本。${NC}"
-        exit 1
-    else
-        DEFAULT_VERSION=$(echo "$LATEST_VERSION_TAG" | sed 's/^v//')
-        echo -e "${GREEN}最新版本: ${DEFAULT_VERSION}${NC}"
-    fi
+# --- 3. 检测系统架构 ---
+echo -e "${BLUE}>> 检测系统架构...${NC}"
+ARCH=$(uname -m)
+if [ "$ARCH" = "x86_64" ] || [ "$ARCH" = "x86" ]; then
+    ARCH="x86"
+elif [ "$ARCH" = "aarch64" ] || [ "$ARCH" = "arm64" ]; then
+    ARCH="arm"
 else
-    DEFAULT_VERSION="$USER_VERSION"
+    echo -e "${RED}错误: 不支持的架构 $ARCH。默认使用 x86。${NC}"
+    ARCH="x86"
+fi
+echo -e "${GREEN}检测到架构: ${ARCH}${NC}"
+
+# --- 4. 获取最新版本 ---
+echo -e "${YELLOW}>> 获取最新版本...${NC}"
+echo -e "${YELLOW}>> 使用代理：${GITHUB_PROXY}${NC}"
+# 使用代理访问 GitHub API
+LATEST_RELEASE_INFO=$(curl -s "${GITHUB_PROXY}${GITHUB_API_URL_BASE}")
+LATEST_VERSION_TAG=$(echo "$LATEST_RELEASE_INFO" | grep -oP '"tag_name": "\Kv[^"]+')
+
+if [ -z "$LATEST_VERSION_TAG" ]; then
+    echo -e "${RED}错误: 无法获取最新版本号。请检查代理或网络。${NC}"
+    exit 1
+else
+    DEFAULT_VERSION=$(echo "$LATEST_VERSION_TAG" | sed 's/^v//')
+    echo -e "${GREEN}最新版本: ${DEFAULT_VERSION}${NC}"
 fi
 
 FULL_VERSION_TAG="v${DEFAULT_VERSION}"
-FPK_FILENAME="SmartStrm_${DEFAULT_VERSION}.fpk"
+# 使用新的 FPK 文件名格式 SmartStrm_{x.x.x}_{arch}.fpk
+FPK_FILENAME="SmartStrm_${DEFAULT_VERSION}_${ARCH}.fpk"
 # 构建代理下载 URL
 DOWNLOAD_URL="${GITHUB_PROXY}${GITHUB_DOWNLOAD_URL_BASE}${FULL_VERSION_TAG}/${FPK_FILENAME}"
 
 echo -e "${YELLOW}即将更新到版本: ${DEFAULT_VERSION}${NC}"
 echo ""
 
-# --- 4. 如果 SmartStrm 正在运行，则停止它 ---
+# --- 5. 如果 SmartStrm 正在运行，则停止它 ---
 if [ "$WAS_RUNNING" = true ]; then
     echo -e "${BLUE}>> 停止 SmartStrm 服务...${NC}"
     appcenter-cli stop "${APP_NAME}" &>/dev/null
@@ -137,7 +145,7 @@ if [ "$WAS_RUNNING" = true ]; then
     sleep 2 # 等待服务完全停止
 fi
 
-# --- 5. 下载 FPK 文件 ---
+# --- 6. 下载 FPK 文件 ---
 echo -e "${BLUE}>> 下载 ${FPK_FILENAME}...${NC}"
 wget -q -O "${TEMP_DIR}/${FPK_FILENAME}" "$DOWNLOAD_URL"
 if [ $? -ne 0 ]; then
@@ -146,7 +154,7 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "${GREEN}下载完成。${NC}"
 
-# --- 6. 解压 FPK 并提取 SmartStrm 可执行文件 ---
+# --- 7. 解压 FPK 并提取 SmartStrm 可执行文件 ---
 echo -e "${BLUE}>> 解压文件并提取 SmartStrm 可执行文件...${NC}"
 tar -xzf "${TEMP_DIR}/${FPK_FILENAME}" -C "$TEMP_DIR" app.tgz &>/dev/null
 if [ $? -ne 0 ]; then
@@ -167,7 +175,7 @@ if [ ! -f "$EXTRACTED_EXECUTABLE" ]; then
 fi
 echo -e "${GREEN}SmartStrm 可执行文件提取成功。${NC}"
 
-# --- 7. 替换 SmartStrm 可执行文件 ---
+# --- 8. 替换 SmartStrm 可执行文件 ---
 echo -e "${BLUE}>> 替换 SmartStrm 可执行文件...${NC}"
 
 if [ -f "$TARGET_EXECUTABLE_PATH" ]; then
@@ -185,7 +193,7 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "${GREEN}新文件已复制。${NC}"
 
-# --- 8. 设置权限 ---
+# --- 9. 设置权限 ---
 echo -e "${BLUE}>> 设置权限为 755...${NC}"
 chmod 755 "$TARGET_EXECUTABLE_PATH"
 if [ $? -ne 0 ]; then
@@ -194,7 +202,7 @@ if [ $? -ne 0 ]; then
 fi
 echo -e "${GREEN}权限设置成功。${NC}"
 
-# --- 9. 如果 SmartStrm 更新前是 running 状态，则重启它 ---
+# --- 10. 如果 SmartStrm 更新前是 running 状态，则重启它 ---
 if [ "$WAS_RUNNING" = true ]; then
     echo -e "${BLUE}>> SmartStrm 更新完成，重启服务...${NC}"
     appcenter-cli start "${APP_NAME}" &>/dev/null
