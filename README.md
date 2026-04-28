@@ -11,7 +11,7 @@
 
 配合 Quark-Auto-Save/CloudSaver, OpenList, Emby 力求即存即看。🥳
 
-[**项目文档**](https://smartstrm.github.io) · [快速部署](https://smartstrm.github.io/guide/deploy) · [保姆教程](https://smartstrm.github.io/help/tutorials) · [进阶玩法](https://smartstrm.github.io/settings/webhook) · [常见问题](https://smartstrm.github.io/help/faq) · [更新日志](https://smartstrm.github.io/help/changelog)
+[**项目文档**](https://smartstrm.github.io) · [快速部署](https://smartstrm.github.io/guide/deploy) · [保姆教程](https://smartstrm.github.io/help/tutorials) · [进阶玩法](https://smartstrm.github.io/settings/webhook) · [常见问题](https://smartstrm.github.io/help/faq) · [更新日志](https://smartstrm.github.io/changelog)
 
 [![releases][releases-image]][docker-url] [![docker-pulls][docker-pulls-image]][docker-url] [![docker-image-size][docker-image-size-image]][docker-url] [![pro][pro-image]][pro-url] [![telegram][telegram-image]][telegram-url]
 
@@ -68,7 +68,7 @@
 一站式 **Emby / Jellyfin / Plex / 飞牛影视** 302 重定向技术。视频流直连请求网盘，不占用 NAS 带宽，拒绝播放转圈。
 
 ### 🛠️ 插件系统
-提供丰富插件扩展，包括 **文件名修复**、**内容正则替换**、**通知刷新** 等能力，满足各种复杂的自动化场景。
+提供丰富插件扩展，包括 **文件名修复**、**内容正则替换**、**通知飞牛刷新**、**提取视频封面** 等能力，满足各种复杂的自动化场景。
 
 ### 🧠 智能识别
 内置文件浏览器，支持 **TMDB 智能识别** 与批量重命名，让你的 STRM 文件结构标准、刮削精准。
